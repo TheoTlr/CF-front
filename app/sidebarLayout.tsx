@@ -86,7 +86,7 @@ function NavItem({ href, icon, active, styles, theme }) {
             <Ionicons
                 name={icon}
                 size={22}
-                color={active ? theme.colors.backgroundInvert : theme.colors.background}
+                color={active ? theme.colors.background : theme.colors.textSecondary}
             />
         </Link>
     );
@@ -97,14 +97,14 @@ const createStyles = (theme) =>
         container: {
             flex: 1,
             flexDirection: 'row',
-            backgroundColor: theme.colors.backgroundInvert,
+            backgroundColor: theme.colors.background,
         },
 
         /* SIDEBAR STYLE "RAIL" */
         sidebar: {
-            width: '5%', // Réduit pour le style rail
+            width: '4%', // Réduit pour le style rail
             paddingVertical: theme.spacing.xl,
-            alignItems: 'center',
+            alignItems: 'flex-end',
             justifyContent: 'space-between',
         },
 
@@ -157,7 +157,6 @@ const createStyles = (theme) =>
         /* CONTENT */
         content: {
             flex: 1,
-            marginLeft: theme.spacing.sm,
-            backgroundColor: theme.colors.textPrimary,
+            marginLeft: theme.spacing.sm
         },
     });

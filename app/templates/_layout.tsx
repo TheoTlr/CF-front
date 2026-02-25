@@ -21,7 +21,5 @@ const createStyles = (theme) =>
             flex: 1,
             padding: theme.spacing.lg,
             backgroundColor: theme.colors.background,
-            borderTopLeftRadius: 45,
-            borderBottomLeftRadius: 45
         },
     });
