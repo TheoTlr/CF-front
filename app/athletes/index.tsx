@@ -23,12 +23,7 @@ export default function AthletesListPage() {
         <ScrollView style={styles.page}>
             {/* HEADER */}
             <View style={styles.header}>
-                <View>
-                    <Text style={styles.title}>Athlètes</Text>
-                    <Text style={styles.subtitle}>
-                        Gérez et suivez la progression de vos 12 athlètes actifs.
-                    </Text>
-                </View>
+                <Text style={styles.title}> Mes Athlètes</Text>
 
                 <View style={styles.actions}>
                     <View style={styles.search}>
@@ -48,7 +43,7 @@ export default function AthletesListPage() {
                         <Ionicons
                             name="add"
                             size={18}
-                            color="#fff"
+                            color={theme.colors.surface}
                         />
                         <Text style={styles.addText}>Nouveau</Text>
                     </Pressable>
@@ -103,7 +98,7 @@ const createStyles = (theme) =>
         },
 
         title: {
-            fontSize: 24,
+            fontSize: 28,
             fontWeight: '700',
             color: theme.colors.textPrimary,
         },
@@ -138,14 +133,14 @@ const createStyles = (theme) =>
         addBtn: {
             flexDirection: 'row',
             alignItems: 'center',
-            gap: 6,
+            gap: theme.spacing.sm,
+            paddingVertical: theme.spacing.sm,
+            paddingHorizontal: theme.spacing.lg,
+            borderRadius: theme.radius.md,
             backgroundColor: theme.colors.primary,
-            paddingHorizontal: theme.spacing.md,
-            height: 40,
-            borderRadius: theme.radius.full,
         },
         addText: {
-            color: '#fff',
+            color: theme.colors.surface,
             fontWeight: '600',
         },
 

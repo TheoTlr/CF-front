@@ -11,74 +11,63 @@ export default function SidebarLayout() {
 
     return (
         <View style={styles.container}>
-            {/* SIDEBAR */}
+            {/* SIDEBAR RAIL */}
             <View style={styles.sidebar}>
-                {/* LOGO */}
-                <View style={styles.logoRow}>
-                    <View style={styles.logoIcon}>
+                <View style={styles.topSection}>
+                    {/* LOGO CIRCULAIRE */}
+                    <View style={styles.logoCircle}>
                         <Text style={styles.logoLetter}>C</Text>
                     </View>
-                    <Text style={styles.logoText}>CoachFlow</Text>
+
+                    {/* NAV ITEMS */}
+                    <View style={styles.nav}>
+                        <NavItem
+                            href="/dashboard"
+                            icon="grid-outline"
+                            active={pathname === '/dashboard'}
+                            styles={styles}
+                            theme={theme}
+                        />
+                        <NavItem
+                            href="/athletes"
+                            icon="people-outline"
+                            active={pathname === '/athletes'}
+                            styles={styles}
+                            theme={theme}
+                        />
+                        <NavItem
+                            href="/templates"
+                            icon="document-text-outline"
+                            active={pathname.startsWith('/templates')}
+                            styles={styles}
+                            theme={theme}
+                        />
+                        <NavItem
+                            href="/settings"
+                            icon="settings-outline"
+                            active={pathname === '/settings'}
+                            styles={styles}
+                            theme={theme}
+                        />
+                    </View>
                 </View>
 
-                {/* NAV */}
-                <View style={styles.nav}>
-                    <NavItem
-                        href="/dashboard"
-                        label="Dashboard"
-                        icon="grid-outline"
-                        active={pathname === '/dashboard'}
-                        styles={styles}
-                        theme={theme}
-                    />
-                    <NavItem
-                        href="/athletes"
-                        label="Athlètes"
-                        icon="people-outline"
-                        active={pathname === '/athletes'}
-                        styles={styles}
-                        theme={theme}
-                    />
-                    <NavItem
-                        href="/templates"
-                        label="Templates"
-                        icon="document-text-outline"
-                        active={pathname.startsWith('/templates')}
-                        styles={styles}
-                        theme={theme}
-                    />
-                    <NavItem
-                        href="/settings"
-                        label="Paramètres"
-                        icon="settings-outline"
-                        active={pathname === '/settings'}
-                        styles={styles}
-                        theme={theme}
-                    />
-                </View>
-
-                {/* FOOTER */}
+                {/* FOOTER - ICONES UNIQUEMENT */}
                 <View style={styles.footer}>
-                    {/* THEME TOGGLE */}
-                    <Pressable style={styles.themeToggle} onPress={toggleTheme}>
+                    <Pressable style={styles.footerIcon} onPress={toggleTheme}>
                         <Ionicons
                             name={theme.mode === 'dark' ? 'sunny-outline' : 'moon-outline'}
-                            size={20}
-                            color={theme.colors.textPrimary}
+                            size={22}
+                            color={theme.colors.textSecondary}
                         />
-                        <Text style={styles.themeToggleText}>
-                            {theme.mode === 'dark' ? 'Light mode' : 'Dark mode'}
-                        </Text>
                     </Pressable>
 
-                    {/* LOGOUT */}
-                    <Pressable style={styles.logout}>
+                    <Pressable style={styles.footerIcon}>
                         <Ionicons
-                            name="log-out-outline"
-                            size={20}
-                            color={theme.colors.danger}
+                            name="help-circle-outline"
+                            size={22}
+                            color={theme.colors.textSecondary}
                         />
-                        <Text style={styles.logoutText}>Déconnexion</Text>
                     </Pressable>
                 </View>
             </View>
@@ -91,136 +80,84 @@ export default function SidebarLayout() {
     );
 }
 
-function NavItem({ href, label, icon, active, styles, theme }) {
+function NavItem({ href, icon, active, styles, theme }) {
     return (
-        <Link
-            href={href}
-            style={[
-                styles.navItem,
-                active && styles.navItemActive,
-            ]}
-        >
+        <Link href={href} style={[styles.navItem, active && styles.navItemActive]}>
             <Ionicons
                 name={icon}
-                size={20}
-                color={
-                    active
-                        ? theme.colors.textPrimary
-                        : theme.colors.textSecondary
-                }
+                size={22}
+                color={active ? theme.colors.backgroundInvert : theme.colors.background}
             />
-            <Text
-                style={[
-                    styles.navText,
-                    active && styles.navTextActive,
-                ]}
-            >
-                {label}
-            </Text>
         </Link>
     );
 }
 
-/* 🎨 STYLES DÉRIVÉS DU DESIGN SYSTEM */
 const createStyles = (theme) =>
     StyleSheet.create({
         container: {
             flex: 1,
             flexDirection: 'row',
-            backgroundColor: theme.colors.background,
+            backgroundColor: theme.colors.backgroundInvert,
         },
 
-        /* SIDEBAR */
+        /* SIDEBAR STYLE "RAIL" */
         sidebar: {
-            width: 260,
-            backgroundColor: theme.colors.surface,
-            paddingVertical: theme.spacing.lg,
-            paddingHorizontal: theme.spacing.md,
+            width: '5%', // Réduit pour le style rail
+            paddingVertical: theme.spacing.xl,
+            alignItems: 'center',
             justifyContent: 'space-between',
-            borderRightWidth: 1,
-            borderRightColor: theme.colors.border,
         },
 
-        logoRow: {
-            flexDirection: 'row',
+        topSection: {
             alignItems: 'center',
-            marginBottom: theme.spacing.xl,
+            gap: 40,
         },
-        logoIcon: {
-            width: 36,
-            height: 36,
-            borderRadius: theme.radius.md,
-            backgroundColor: theme.colors.primary,
+
+        logoCircle: {
+            width: 50,
+            height: 50,
+            borderRadius: 25,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight: theme.spacing.sm,
+            marginBottom: 20,
         },
         logoLetter: {
-            color: theme.colors.surface,
+            color: theme.colors.primary,
+            fontSize: 20,
             fontWeight: 'bold',
-            fontSize: 18,
-        },
-        logoText: {
-            color: theme.colors.textPrimary,
-            fontSize: 18,
-            fontWeight: '600',
         },
 
         nav: {
-            flex: 1,
-            gap: theme.spacing.sm,
+            gap: 25,
         },
 
         navItem: {
-            flexDirection: 'row',
+            width: 48,
+            height: 48,
+            borderRadius: 24,
+            display: 'flex',
             alignItems: 'center',
-            gap: theme.spacing.sm,
-            paddingVertical: theme.spacing.sm,
-            paddingHorizontal: theme.spacing.md,
-            borderRadius: theme.radius.md,
+            justifyContent: 'center',
         },
         navItemActive: {
-            backgroundColor: theme.colors.primarySoft,
-        },
-        navText: {
-            color: theme.colors.textSecondary,
-            fontSize: 15,
-            fontWeight: '500',
-        },
-        navTextActive: {
-            color: theme.colors.textPrimary,
+            backgroundColor: theme.colors.primary, // Fond plein pour l'item actif
         },
 
         footer: {
-            borderTopWidth: 1,
-            borderTopColor: theme.colors.border,
-            paddingTop: theme.spacing.md,
-            gap: theme.spacing.md,
-        },
-
-        themeToggle: {
-            flexDirection: 'row',
+            gap: 20,
+            paddingBottom: 10,
             alignItems: 'center',
-            gap: theme.spacing.sm,
         },
-        themeToggleText: {
-            color: theme.colors.textPrimary,
-            fontWeight: '500',
-        },
-
-        logout: {
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: theme.spacing.sm,
-        },
-        logoutText: {
-            color: theme.colors.danger,
-            fontSize: 15,
+        footerIcon: {
+            padding: 8,
         },
 
         /* CONTENT */
         content: {
             flex: 1,
-            padding: theme.spacing.xl,
+            marginLeft: theme.spacing.sm,
+            backgroundColor: theme.colors.textPrimary,
         },
     });

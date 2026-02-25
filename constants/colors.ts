@@ -14,14 +14,16 @@ export const lightColors = {
 };
 
 export const darkColors = {
-    background: '#020617',
-    surface: '#0f172a',
+    background: '#000000',
+    backgroundInvert: '#F5F1E9',
+    backgroundTest: '#0f172a',
+    surface: '#26221F',
     border: '#1e293b',
 
     textPrimary: '#f8fafc',
     textSecondary: '#94a3b8',
 
-    primary: '#6366f1',
+    primary: '#D4C682',
     primarySoft: '#1e1b4b',
 
     success: '#22c55e',
