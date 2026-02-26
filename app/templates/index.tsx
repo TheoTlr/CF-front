@@ -1,5 +1,5 @@
 // app/templates/index.tsx
-import {View, Text, StyleSheet, Pressable, ScrollView, TextInput} from 'react-native';
+import {View, Text, StyleSheet, Pressable, ScrollView, TextInput, Modal} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
@@ -11,7 +11,7 @@ const TEMPLATES = [
         title: 'Hypertrophie : Push/Pull/Legs',
         duration: '8 semaines',
         level: 'Intermédiaire',
-        levelColorKey: 'primary',
+        levelColorKey: 'linePrimary',
         tags: ['Musculation', 'Esthétique'],
     },
     {
@@ -19,7 +19,7 @@ const TEMPLATES = [
         title: 'Force 5×5 Classique',
         duration: '12 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Force', 'Fondations'],
     },
     {
@@ -27,7 +27,7 @@ const TEMPLATES = [
         title: 'Préparation Marathon',
         duration: '16 semaines',
         level: 'Avancé',
-        levelColorKey: 'primary',
+        levelColorKey: 'lineTertiary',
         tags: ['Cardio', 'Endurance'],
     },
     {
@@ -35,7 +35,7 @@ const TEMPLATES = [
         title: 'Perte de poids HIIT',
         duration: '4 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineTertiary',
         tags: ['Circuit', 'Cardio'],
     },
     {
@@ -43,7 +43,7 @@ const TEMPLATES = [
         title: 'Hypertrophie : Push/Pull/Legs',
         duration: '8 semaines',
         level: 'Intermédiaire',
-        levelColorKey: 'primary',
+        levelColorKey: 'linePrimary',
         tags: ['Musculation', 'Esthétique'],
     },
     {
@@ -51,7 +51,7 @@ const TEMPLATES = [
         title: 'Force 5×5 Classique',
         duration: '12 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'yellow',
         tags: ['Force', 'Fondations'],
     },
     {
@@ -67,7 +67,7 @@ const TEMPLATES = [
         title: 'Perte de poids HIIT',
         duration: '4 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'linePrimary',
         tags: ['Circuit', 'Cardio'],
     },
     {
@@ -75,7 +75,7 @@ const TEMPLATES = [
         title: 'Hypertrophie : Push/Pull/Legs',
         duration: '8 semaines',
         level: 'Intermédiaire',
-        levelColorKey: 'primary',
+        levelColorKey: 'lineTertiary',
         tags: ['Musculation', 'Esthétique'],
     },
     {
@@ -83,7 +83,7 @@ const TEMPLATES = [
         title: 'Force 5×5 Classique',
         duration: '12 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Force', 'Fondations'],
     },
     {
@@ -91,7 +91,7 @@ const TEMPLATES = [
         title: 'Préparation Marathon',
         duration: '16 semaines',
         level: 'Avancé',
-        levelColorKey: 'primary',
+        levelColorKey: 'linePrimary',
         tags: ['Cardio', 'Endurance'],
     },
     {
@@ -99,7 +99,7 @@ const TEMPLATES = [
         title: 'Perte de poids HIIT',
         duration: '4 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Circuit', 'Cardio'],
     },
     {
@@ -107,7 +107,7 @@ const TEMPLATES = [
         title: 'Hypertrophie : Push/Pull/Legs',
         duration: '8 semaines',
         level: 'Intermédiaire',
-        levelColorKey: 'primary',
+        levelColorKey: 'lineTertiary',
         tags: ['Musculation', 'Esthétique'],
     },
     {
@@ -115,7 +115,7 @@ const TEMPLATES = [
         title: 'Force 5×5 Classique',
         duration: '12 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Force', 'Fondations'],
     },
     {
@@ -123,7 +123,7 @@ const TEMPLATES = [
         title: 'Préparation Marathon',
         duration: '16 semaines',
         level: 'Avancé',
-        levelColorKey: 'primary',
+        levelColorKey: 'lineTertiary',
         tags: ['Cardio', 'Endurance'],
     },
     {
@@ -131,7 +131,7 @@ const TEMPLATES = [
         title: 'Perte de poids HIIT',
         duration: '4 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Circuit', 'Cardio'],
     },
     {
@@ -139,7 +139,7 @@ const TEMPLATES = [
         title: 'Hypertrophie : Push/Pull/Legs',
         duration: '8 semaines',
         level: 'Intermédiaire',
-        levelColorKey: 'primary',
+        levelColorKey: 'linePrimary',
         tags: ['Musculation', 'Esthétique'],
     },
     {
@@ -147,7 +147,7 @@ const TEMPLATES = [
         title: 'Force 5×5 Classique',
         duration: '12 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Force', 'Fondations'],
     },
     {
@@ -155,7 +155,7 @@ const TEMPLATES = [
         title: 'Préparation Marathon',
         duration: '16 semaines',
         level: 'Avancé',
-        levelColorKey: 'primary',
+        levelColorKey: 'lineTertiary',
         tags: ['Cardio', 'Endurance'],
     },
     {
@@ -163,7 +163,7 @@ const TEMPLATES = [
         title: 'Perte de poids HIIT',
         duration: '4 semaines',
         level: 'Débutant',
-        levelColorKey: 'success',
+        levelColorKey: 'lineSecondary',
         tags: ['Circuit', 'Cardio'],
     },
 ];
@@ -175,6 +175,8 @@ export default function TemplatesPage() {
     const [search, setSearch] = useState('');
     const [filterOpen, setFilterOpen] = useState(false);
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const allTags = useMemo(
         () => [...new Set(TEMPLATES.flatMap(t => t.tags))],
@@ -202,16 +204,24 @@ export default function TemplatesPage() {
                 selectedTags.length === 0 ||
                 selectedTags.some(tag => t.tags.includes(tag));
 
-            return matchText && matchTags;
+            const matchLevel = !selectedLevel || t.level === selectedLevel;
+
+            return matchText && matchTags && matchLevel;
         });
-    }, [search, selectedTags]);
+    }, [search, selectedTags, selectedLevel]);
+
+    const levelBgMap = {
+        'Débutant': theme.colors.lineTertiary,
+        'Intermédiaire': theme.colors.lineSecondary,
+        'Avancé': theme.colors.linePrimary,
+    };
 
     return (
         <View style={styles.page}>
             {/* HEADER */}
             <View style={styles.header}>
                 <View style={styles.headerLeft}>
-                    <Text style={styles.title}>Templates</Text>
+                    <Text style={styles.title}>Finsights</Text>
                 </View>
 
                 <View style={styles.headerMiddle}>
@@ -228,49 +238,6 @@ export default function TemplatesPage() {
                 </View>
 
                 <View style={styles.headerRight}>
-                    <View style={styles.filterContainer}>
-                        <Pressable
-                            style={styles.filterButton}
-                            onPress={() => setFilterOpen(!filterOpen)}
-                        >
-                            <Ionicons name="options-outline" size={16} color={theme.colors.textPrimary} />
-                            <Text style={styles.filterButtonText}>Filter</Text>
-                            <Ionicons
-                                name={filterOpen ? 'chevron-up' : 'chevron-down'}
-                                size={16}
-                                color={theme.colors.textSecondary}
-                            />
-                        </Pressable>
-
-                        {filterOpen && (
-                            <View style={styles.dropdown}>
-                                {allTags.map(tag => {
-                                    const active = selectedTags.includes(tag);
-
-                                    return (
-                                        <Pressable
-                                            key={tag}
-                                            onPress={() => toggleTag(tag)}
-                                            style={styles.dropdownItem}
-                                        >
-                                            <Ionicons
-                                                name={active ? 'checkbox' : 'square-outline'}
-                                                size={18}
-                                                color={
-                                                    active
-                                                        ? theme.colors.primary
-                                                        : theme.colors.textSecondary
-                                                }
-                                            />
-
-                                            <Text style={styles.dropdownText}>{tag}</Text>
-                                        </Pressable>
-                                    );
-                                })}
-                            </View>
-                        )}
-                    </View>
-
                     <Pressable style={styles.primaryButton}>
                         <Ionicons name="add" size={18} color={theme.colors.surface} />
                         <Text style={styles.primaryButtonText}>Créer Template</Text>
@@ -286,46 +253,172 @@ export default function TemplatesPage() {
             )}
 
             {/* GRID */}
-            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.grid}>
-                {filteredTemplates.map(template => {
-                    const levelColor = theme.colors[template.levelColorKey];
-
-                    return (
-                        <Link
-                            key={template.id}
-                            href={template.id ? `/templates/${template.id}` : '/templates'}
-                            style={styles.card}
-                        >
-                            <View style={styles.cardHeader}>
-                                <View style={styles.docIcon}>
-                                    <Ionicons
-                                        name="document-text-outline"
-                                        size={22}
-                                        color={theme.colors.textSecondary}
-                                    />
-                                </View>
-
-                                <View style={[styles.levelBadge, { backgroundColor: levelColor + '20' }]}>
-                                    <Text style={[styles.levelText, { color: levelColor }]}>
-                                        {template.level}
-                                    </Text>
-                                </View>
-                            </View>
-
-                            <Text style={styles.cardTitle}>{template.title}</Text>
-                            <Text style={styles.cardSubtitle}>{template.duration}</Text>
-
-                            <View style={styles.tags}>
-                                {template.tags.map(tag => (
-                                    <View key={tag} style={styles.tag}>
-                                        <Text style={styles.tagText}>{tag}</Text>
+            <View style={styles.templateContent}>
+                <View style={styles.templateList}>
+                    <View style={styles.templateListHeader}>
+                        <View style={styles.legend}>
+                            <Text style={styles.textTitleComponent}>Templates</Text>
+                            <Pressable
+                                style={styles.filterButton}
+                                onPress={() => setIsModalVisible(true)}
+                            >
+                                <Ionicons name="options-outline" size={16} color={theme.colors.textPrimary} />
+                                <Text style={styles.filterButtonText}>Filtrer par tags</Text>
+                                {selectedTags.length > 0 && (
+                                    <View style={styles.badgeCount}>
+                                        <Text style={styles.badgeCountText}>{selectedTags.length}</Text>
                                     </View>
-                                ))}
+                                )}
+                            </Pressable>
+
+                            <Modal
+                                transparent={true}
+                                visible={isModalVisible}
+                                animationType="fade"
+                                onRequestClose={() => setIsModalVisible(false)}
+                            >
+                                <Pressable
+                                    style={styles.modalOverlay}
+                                    onPress={() => setIsModalVisible(false)}
+                                />
+                                <View style={styles.modalContainer}>
+                                    <View style={styles.modalContent}>
+                                        {/* HEADER */}
+                                        <div style={styles.modalHeader}>
+                                            <Text style={styles.modalTitle}>Filtres</Text>
+                                            <Pressable onPress={() => setIsModalVisible(false)}>
+                                                <Ionicons name="close" size={24} color={theme.colors.textPrimary} />
+                                            </Pressable>
+                                        </div>
+
+                                        <ScrollView showsVerticalScrollIndicator={false}>
+                                            {/* SECTION 1: NIVEAUX */}
+                                            <Text style={styles.modalSectionTitle}>Difficulté</Text>
+                                            <View style={styles.modalLevelGrid}>
+                                                {Object.entries(levelBgMap).map(([label, color]) => {
+                                                    const isActive = selectedLevel === label;
+                                                    return (
+                                                        <Pressable
+                                                            key={label}
+                                                            onPress={() => setSelectedLevel(isActive ? null : label)}
+                                                            style={[
+                                                                styles.modalLevelItem,
+                                                                isActive && { borderColor: theme.colors.primary, borderWidth: 2 }
+                                                            ]}
+                                                        >
+                                                            <View style={[styles.legendColor, { backgroundColor: color }]} />
+                                                            <Text style={[
+                                                                styles.legendText,
+                                                                isActive && { fontWeight: '700' }
+                                                            ]}>
+                                                                {label}
+                                                            </Text>
+                                                        </Pressable>
+                                                    );
+                                                })}
+                                            </View>
+
+                                            {/* SECTION 2: TAGS */}
+                                            <Text style={styles.modalSectionTitle}>Catégories</Text>
+                                            <View style={styles.tagGrid}>
+                                                {allTags.map(tag => {
+                                                    const active = selectedTags.includes(tag);
+                                                    return (
+                                                        <Pressable
+                                                            key={tag}
+                                                            onPress={() => toggleTag(tag)}
+                                                            style={[
+                                                                styles.tagOption,
+                                                                active && styles.tagOptionActive
+                                                            ]}
+                                                        >
+                                                            <Text style={[
+                                                                styles.tagOptionText,
+                                                                active && styles.tagOptionTextActive
+                                                            ]}>
+                                                                {tag}
+                                                            </Text>
+                                                        </Pressable>
+                                                    );
+                                                })}
+                                            </View>
+                                        </ScrollView>
+
+                                        {/* BOUTON ACTIONS */}
+                                        <View style={styles.modalFooter}>
+                                            <Pressable
+                                                style={styles.resetButton}
+                                                onPress={() => {
+                                                    setSelectedTags([]);
+                                                    setSelectedLevel(null);
+                                                }}
+                                            >
+                                                <Text style={styles.resetButtonText}>Réinitialiser</Text>
+                                            </Pressable>
+
+                                            <Pressable
+                                                style={styles.applyButton}
+                                                onPress={() => setIsModalVisible(false)}
+                                            >
+                                                <Text style={styles.applyButtonText}>Appliquer</Text>
+                                            </Pressable>
+                                        </View>
+                                    </View>
+                                </View>
+                            </Modal>
+
+                        </View>
+                        <View style={styles.filterContainer}>
+                            <View style={styles.legend}>
+                                <Pressable style={styles.primaryButton}>
+                                    <Ionicons name="add" size={18}  color={theme.colors.surface} />
+                                </Pressable>
                             </View>
-                        </Link>
-                    );
-                })}
-            </ScrollView>
+                        </View>
+                    </View>
+
+                    <View style={styles.fixedWrapper}>
+                        <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
+                            {filteredTemplates.map(template => {
+                                const bgColor = levelBgMap[template.level] || theme.colors.lineTertiary;
+
+                                return (
+                                    <View
+                                        key={template.id}
+                                        style={[styles.rowItem, { backgroundColor: bgColor + 90 }]} // Fond coloré semi-transparent
+                                    >
+                                        <View style={styles.rowContent}>
+                                            {/* Checkbox / Icône à gauche */}
+                                            <View style={styles.checkboxPlaceholder} />
+
+                                            {/* Texte principal */}
+                                            <View style={styles.textContainer}>
+                                                <Text style={styles.rowTitle}>{template.title}</Text>
+                                                <Text style={styles.rowSubtitle}>{template.duration}</Text>
+                                            </View>
+
+                                            {/* Badge ou Action à droite */}
+                                            <View style={styles.actionContainer}>
+                                                <Link style={styles.viewButton} href={template.id ? `/templates/${template.id}` : '/templates'}>
+                                                    <Text style={styles.viewButtonText}>Edit</Text>
+                                                </Link>
+                                            </View>
+                                        </View>
+                                    </View>
+                                );
+                            })}
+                        </ScrollView>
+                    </View>
+                </View>
+                <View style={styles.templateEdit}>
+                    <Text>dqdqzdqd</Text>
+                    <Text>dqdqzdqd</Text>
+                    <Text>dqdqzdqd</Text>
+                    <Text>dqdqzdqd</Text>
+                    <Text>dqdqzdqd</Text>
+                    <Text>dqdqzdqd</Text>
+                </View>
+            </View>
         </View>
     );
 }
@@ -377,15 +470,13 @@ const createStyles = (theme) =>
         },
         filterContainer: {
             position: 'relative',
-            marginBottom: theme.spacing.md,
         },
 
         filterButton: {
             flexDirection: 'row',
             alignItems: 'center',
             gap: theme.spacing.sm,
-            paddingVertical: 10,
-            paddingHorizontal: theme.spacing.md,
+            padding: theme.spacing.sm,
             borderRadius: theme.radius.md,
             backgroundColor: theme.colors.surface,
             borderWidth: 1,
@@ -441,6 +532,277 @@ const createStyles = (theme) =>
             backgroundColor: theme.colors.primary,
         },
         primaryButtonText: { color: theme.colors.surface, fontWeight: '600' },
+        templateContent: {
+            display: 'flex',
+            flexDirection: 'row',
+            height: '40%',
+            gap: theme.spacing.xl,
+        },
+        templateList: {
+            backgroundColor: theme.colors.backgroundInvert,
+            width : '60%',
+            gap: theme.spacing.md,
+            borderRadius: theme.radius.lg,
+            paddingVertical: theme.spacing.md,
+            paddingHorizontal: theme.spacing.lg,
+        },
+        templateListHeader: {
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center"
+        },
+        legend: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 12,
+        },
+        legendItem: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            padding: theme.spacing.sm,
+            borderRadius: theme.radius.md,
+            backgroundColor: theme.colors.primary
+        },
+        legendItemActive: {
+            backgroundColor: '#FFF', // Fond blanc quand actif
+            borderColor: theme.colors.border,
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 1 },
+            shadowOpacity: 0.1,
+            elevation: 2,
+        },
+        legendTextActive: {
+            fontWeight: '700',
+            color: '#000',
+        },
+        legendColor: {
+            width: 12,
+            height: 12,
+            borderRadius: 2,
+            marginRight: 6,
+        },
+        legendText: {
+            fontSize: 12,
+        },
+        textTitleComponent: { fontSize: 20, fontWeight: '500' },
+        templateEdit: {
+            backgroundColor: theme.colors.surface,
+            flex: 1,
+            marginRight: theme.spacing.lg,
+            borderRadius: theme.radius.lg,
+            padding: theme.spacing.lg,
+        },
+
+        fixedWrapper: {
+            height: '85%',
+            overflow: "hidden"
+        },
+        scrollView: {
+            flex: 1,
+        },
+        rowItem: {
+            borderRadius: 16, // Coins très arrondis comme sur l'image
+            paddingVertical: 12,
+            paddingHorizontal: 16,
+            marginBottom: 8,
+        },
+        rowContent: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            width: '100%',
+        },
+        checkboxPlaceholder: {
+            width: 16,
+            height: 16,
+            backgroundColor: '#FFF',
+            borderRadius: 6,
+            marginRight: 12,
+        },
+        textContainer: {
+            flex: 1,
+            gap: 10,
+            display: 'flex',
+            flexDirection: 'row',
+        },
+        actionContainer: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-end', // Aligne le contenu du container à droite
+            gap: 8, // Espace entre les icônes si tu en ajoutes plusieurs (ex: bouton + avatar)
+        },
+        rowTitle: {
+            fontSize: 16,
+            fontWeight: '600',
+            color: '#1a1a1a',
+        },
+        rowSubtitle: {
+            fontSize: 14,
+            color: '#666',
+            marginTop: 2,
+        },
+        viewButton: {
+            backgroundColor: theme.colors.buttonPrimary,
+            paddingHorizontal: 16,
+            paddingVertical: 6,
+            borderRadius: 20,
+        },
+        viewButtonText: {
+            fontSize: 14,
+            fontWeight: 'bold',
+            color: '#000',
+        },
+
+
+        badgeCount: {
+            backgroundColor: theme.colors.primary,
+            borderRadius: 10,
+            minWidth: 18,
+            height: 18,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginLeft: 4,
+        },
+        badgeCountText: {
+            color: 'white',
+            fontSize: 10,
+            fontWeight: 'bold',
+        },
+
+        // MODAL STYLES
+        modalOverlay: {
+            flex: 1,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+        },
+        modalContainer: {
+            position: 'absolute',
+            top: 0, left: 0, right: 0, bottom: 0,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        modalContent: {
+            width: '80%',
+            maxWidth: 400,
+            backgroundColor: theme.colors.surface,
+            borderRadius: theme.radius.lg,
+            padding: theme.spacing.lg,
+            shadowColor: '#000',
+            shadowOpacity: 0.25,
+            shadowRadius: 10,
+            elevation: 5,
+        },
+        modalHeader: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginBottom: theme.spacing.lg,
+        },
+        modalTitle: {
+            fontSize: 18,
+            fontWeight: '600',
+            color: theme.colors.textPrimary,
+        },
+        tagGrid: {
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            gap: 10,
+            paddingBottom: 20,
+        },
+        tagOption: {
+            paddingHorizontal: 16,
+            paddingVertical: 8,
+            borderRadius: 20,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
+            backgroundColor: theme.colors.background,
+        },
+        tagOptionActive: {
+            backgroundColor: theme.colors.primary,
+            borderColor: theme.colors.primary,
+        },
+        tagOptionText: {
+            fontSize: 14,
+            color: theme.colors.textPrimary,
+        },
+        tagOptionTextActive: {
+            color: '#FFF',
+            fontWeight: '600',
+        },
+        applyButtonText: {
+            color: '#FFF',
+            fontWeight: 'bold',
+            fontSize: 16,
+        },
+        modalSectionTitle: {
+            fontSize: 14,
+            fontWeight: '700',
+            color: theme.colors.textSecondary,
+            textTransform: 'uppercase',
+            marginBottom: 12,
+            marginTop: 8,
+        },
+        modalLevelGrid: {
+            flexDirection: 'row',
+            gap: 10,
+            marginBottom: 24,
+        },
+        modalLevelItem: {
+            flex: 1, // Pour que les 3 niveaux prennent la même largeur
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 10,
+            backgroundColor: theme.colors.background,
+            borderRadius: theme.radius.md,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
+        },
+        modalFooter: {
+            flexDirection: 'row',
+            gap: 12,
+            marginTop: 20,
+            paddingTop: 15,
+            borderTopWidth: 1,
+            borderTopColor: theme.colors.border,
+        },
+        resetButton: {
+            flex: 1,
+            paddingVertical: 12,
+            alignItems: 'center',
+            justifyContent: 'center',
+        },
+        resetButtonText: {
+            color: theme.colors.textSecondary,
+            fontWeight: '600',
+        },
+        applyButton: {
+            flex: 2,
+            backgroundColor: theme.colors.primary,
+            borderRadius: theme.radius.md,
+            paddingVertical: 12,
+            alignItems: 'center',
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         grid: { flexDirection: 'row', flexWrap: 'wrap', gap: theme.spacing.lg},
         card: {
             width: '32%',

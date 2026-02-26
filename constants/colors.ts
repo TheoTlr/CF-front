@@ -3,6 +3,10 @@ export const lightColors = {
     surface: '#ffffff',
     border: '#e2e8f0',
 
+    linePrimary: '#FF784E',
+    lineSecondary: '#FF9D4F',
+    lineTertiary: '#FDCF68',
+
     textPrimary: '#0f172a',
     textSecondary: '#64748b',
 
@@ -15,10 +19,14 @@ export const lightColors = {
 
 export const darkColors = {
     background: '#000000',
-    backgroundInvert: '#F5F1E9',
+    backgroundInvert: '#E6E0D4',
     backgroundTest: '#0f172a',
     surface: '#26221F',
     border: '#1e293b',
+
+    linePrimary: '#FF784E',
+    lineSecondary: '#FF9D4F',
+    lineTertiary: '#FDCF68',
 
     textPrimary: '#f8fafc',
     textSecondary: '#94a3b8',
@@ -28,4 +36,9 @@ export const darkColors = {
 
     success: '#22c55e',
     danger: '#f87171',
+
+    buttonPrimary: '#FFFFFF',
+    buttonSecondary: '#695B3E',
+
+    yellow: '#FDCF68',
 };

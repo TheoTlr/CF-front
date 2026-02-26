@@ -19,7 +19,8 @@ const createStyles = (theme) =>
     StyleSheet.create({
         container: {
             flex: 1,
-            padding: theme.spacing.lg,
+            paddingTop: theme.spacing.lg,
+            paddingLeft: theme.spacing.xl,
             backgroundColor: theme.colors.background,
             borderTopLeftRadius: 45,
             borderBottomLeftRadius: 45
